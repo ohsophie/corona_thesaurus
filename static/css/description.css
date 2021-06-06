@@ -1,0 +1,22 @@
+#firsth {
+  text-align: left;
+  color: SteelBlue;
+  margin-left: 30px;
+}
+
+
+#ul2 {
+    line-height: 2;
+    list-style-type: circle;
+    font-size: 18px;
+    margin-left: 40px;
+}
+
+a:hover {
+  color: #8B0000;
+}
+
+p {
+  padding: 0px 20px;
+  font-size: 18px;
+}

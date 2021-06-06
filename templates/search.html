@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Результаты запроса{% endblock %}
+{% block body %}
+<h1 style="color:SteelBlue;">Результат запроса:</h1>
+
+<p>{% if post['descriptor']%}
+    <b>{{ post['descriptor'] }} </b>
+    {% for syn in synonyms %}
+        {% if syn['post_id'] == post['id']%}
+            или <i>{{ syn['marks'] }} </i><b>{{ syn['ascriptor'] }}</b>{{ syn['notes'] }},
+        {% endif %}
+    {% endfor %}
+    {% for ant in antonyms %}
+        {% if ant['post_id'] == post['id']%}
+            ант. <i>{{ ant['marks'] }} </i><b>{{ ant['ascriptor'] }}</b>,
+        {% endif %}
+    {% endfor %}{{ post['notes'] }} --</p>
+        <span class="badge badge-primary"><i>{{ post['pos_tag'] }}</i> {{ post['content'] }}</span>
+ <p><i>{% for ex in examples %}
+        {% if ex['post_id'] == post['id']%}
+            {{ ex['content'] }} <br>
+        {% endif %}
+    {% endfor %}</i></p>
+    {% elif not post['descriptor']%}
+    {% for p in posts %}
+        {% if p['id'] == post['post_id']%}
+            <b>{{p['descriptor']}}</b>
+                {% for syn in synonyms %}
+                        {% if syn['post_id'] == p['id']%}
+                            или <i>{{ syn['marks'] }} </i><b>{{ syn['ascriptor'] }}</b>{{ syn['notes'] }},
+                        {% endif %}
+                    {% endfor %}
+                    {% for ant in antonyms %}
+                        {% if ant['post_id'] == p['id']%}
+                            ант. <i>{{ ant['marks'] }} </i><b>{{ ant['ascriptor'] }}</b>,
+                        {% endif %}
+                    {% endfor %}{{ p['notes'] }} --
+                        <span class="badge badge-primary"><i>{{ p['pos_tag'] }}</i> {{ p['content'] }}</span>
+                <p><i>{% for ex in examples %}
+                        {% if ex['post_id'] == p['id']%}
+                            {{ ex['content'] }} <br>
+                        {% endif %}
+                    {% endfor %}</i></p>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+        <hr style="border: 2px solid SteelBlue;">
+
+{% endblock %}

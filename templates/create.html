@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block links %}<link rel="stylesheet" media="screen" href="{{ url_for('static', filename='css/styles.css') }}" >{% endblock %}
+{% block title %}Добавить свой текст{% endblock %}
+{% block body %}
+<h1 id="h1_2">Хотите помочь исследованию? Добавьте свою статью в корпус!</h1>
+
+<p> Введите в форму ниже заголовок, основной текст статьи, оставьте ссылку на статью и дату её написания, а мы проверим и добавим её в корпус. Обязательные поля отмечены знаком *:</p>
+
+<form  method="post">
+    <div class="form-group">
+        <label for="title">Введите заголовок: </label>
+        <input id="title" type="text" name="title"
+               placeholder="начните вводить заголовок..." class="form-control"
+               value="{{ request.form['title'] }}"/>
+    </div>
+    <div class="form-group">
+        <label for="link">Добавьте ссылку на статью: *</label>
+        <input id="link" type="text" name="link"
+               placeholder="вставьте ссылку..." class="form-control"
+               value="{{ request.form['link'] }}"/>
+    </div>
+    <div class="form-group">
+        <label for="date">Когда была написана статья? (ДД.ММ.ГГГГ)</label>
+        <input id="date" type="text" name="date"
+               placeholder="введите дату..." class="form-control"
+               value="{{ request.form['date'] }}"/>
+    </div>
+    <div class="form-group">
+        <label for="content">Добавьте текст статьи: *</label>
+        <textarea id="content" name="content" style="padding:40px;"
+               placeholder="начните вводить текст..." class="form-control"
+               value="{{ request.form['content'] }}"></textarea>
+    </div>
+<br><br>
+    <div class="form-group">
+        <button class="button button1" type="submit">Отправить</button>
+    </div>
+</form>
+{% endblock %}

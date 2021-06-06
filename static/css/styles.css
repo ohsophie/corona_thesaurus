@@ -1,0 +1,44 @@
+input[type=text], textarea {
+  width: 70%;
+  padding: 8px 40px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  margin-left: 60px;
+  border-radius: 10px;
+  border: 2px solid Black;
+  resize: vertical;
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-right: 60px;
+  float: right;
+}
+
+.button1 {
+  background-color: LightSteelBlue;
+  color: black;
+  border: 2px solid Black;
+}
+
+.button1:hover {
+  background-color: SteelBlue;
+  color: white;
+}
+
+label {
+    font-size: 16px;
+    position: relative;
+    display: inline-block;
+    margin-left: 20px;
+}

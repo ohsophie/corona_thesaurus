@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block links %}<link rel="stylesheet" href="{{ url_for('static', filename='css/description.css') }}">
+
+{% endblock %}
+{% block title %}
+Главная
+{% endblock %}
+
+{% block body %}
+
+<p> <b>Идея исследования:</b> собрать корпус новостных текстов, посвященных пандемии COVID-19
+    и на основе собранного материала составить тематический тезаурус, отражающий специфику словарного состава указанного периода. </p>
+
+<div class="row featurette">
+    <img src="{{ url_for('static', filename='newspapers.jpg') }}" border="3"  style="border-color:SteelBlue;float:right;width:350px;height:350px;position:absolute;left:70%" data-holder-rendered="true"/>
+</div>
+
+<div class="col-md-7" style="padding-left: 40px;">
+    <h2 id="firsth">Основные источники текстов в корпусе:</h2>
+        <ul id="ul2">
+            <li id="li4">Интернет-газета <a href="https://www.kommersant.ru">"Коммерсантъ"</a></li><br>
+            <li id="li5">Новосибирский портал <a href="https://ngs.ru">NGS</a></li><br>
+            <li id="li6">Екатеринбургский портал <a href="https://www.e1.ru">Е1</a></li>
+            <li id="li7">Нижегородский портал <a href="https://www.nn.ru">NN</a></li>
+            <li id="li8">Санкт-Питербургский портал <a href="https://www.fontanka.ru">"Фонтанка"</a></li>
+            <li id="li9">Новостной портал <a href="https://lenta.ru">Lenta.ru</a></li>
+            <li id="li10">Информационное агенство <a href="https://tass.ru">ТАСС</a></li>
+        </ul>
+</div>
+<div>
+    <p>На 07.06.2021 Корпус включает в себя около 1200 текстов и более 600 000 токенов. </p>
+</div>
+{% endblock %}

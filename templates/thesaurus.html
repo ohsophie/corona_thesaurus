@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block style %}
+input[type=text] {
+  width: 30%;
+  box-sizing: border-box;
+  border: 2px solid SteelBlue;
+  border-radius: 4px;
+  font-size: 20px;
+  background-color: LightSteelBlue;
+  background-image: url('static/searchicon3_2.png');
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding: 12px 20px 12px 40px;
+  transition: width 0.4s ease-in-out;
+}
+input[type=text]:focus {
+  width: 80%;
+}
+
+.button {
+  border: none;
+  color: white;
+  padding: 10px 23px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-right: 60px;
+  float: right;
+}
+
+.button1 {
+  background-color: LightSteelBlue;
+  color: black;
+  border: 2px solid Black;
+}
+
+.button1:hover {
+  background-color: SteelBlue;
+  color: white;
+}
+{% endblock %}
+{% block title %}
+Тезаурус
+{% endblock %}
+
+{% block body %}
+
+<form method="post">
+    <input type="text" name="search" value="{{ request.form['search'] }}" placeholder="Введите запрос...">
+    <button type="submit" class="button button1">Отправить</button>
+</form>
+
+
+{% for post in posts %}
+<p><b>{{ post['descriptor'] }} </b>
+    {% for syn in synonyms %}
+        {% if syn['post_id'] == post['id']%}
+            или <i>{{ syn['marks'] }} </i><b>{{ syn['ascriptor'] }}</b>{{ syn['notes'] }},
+        {% endif %}
+    {% endfor %}
+    {% for ant in antonyms %}
+        {% if ant['post_id'] == post['id']%}
+            ант. <i>{{ ant['marks'] }} </i><b>{{ ant['ascriptor'] }}</b>,
+        {% endif %}
+    {% endfor %}{{ post['notes'] }} --</p>
+        <span class="badge badge-primary"><i>{{ post['pos_tag'] }}</i> {{ post['content'] }}</span>
+ <p><i>{% for ex in examples %}
+        {% if ex['post_id'] == post['id']%}
+            {{ ex['content'] }} Источник: {{ ex['link'] }} <br>
+        {% endif %}
+    {% endfor %}</i></p>
+        <hr style="border: 2px solid SteelBlue;">
+    {% endfor %}
+
+{% endblock %}

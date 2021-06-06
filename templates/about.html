@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block links %}<link rel="stylesheet" media="screen" href="{{ url_for('static', filename='css/about.css') }}" >{% endblock %}
+{% block title %}О нас{% endblock %}
+{% block body %}
+
+<br>
+ <table border="0" align="center">
+   <tr>
+    <th align=center valign="top" width="600"><img border=3 style="border-color:SteelBlue" src="{{ url_for('static', filename='kitten.jpg') }}" width=200 ><p id="pic1">Одияк Софья Павловна, студент<br>Новосибирский Государственный Университет,<br>кафедра фундаментальной и прикладной лингвистики<br>s.odiyak@g.nsu.ru</p></p><br></th>
+
+    <th align=center valign="top" width="600"> <img border=3 style="border-color:SteelBlue" src="{{ url_for('static', filename='kitten2_1.jpg') }}" width=200><p id="pic2">Леман Анна Яковлевна, научный руководитель<br>Новосибирский Государственный Университет,<br>кафедра фундаментальной и прикладной лингвистики<br></p><br></th>
+
+   </tr>
+ </table>
+
+
+{% endblock %}
